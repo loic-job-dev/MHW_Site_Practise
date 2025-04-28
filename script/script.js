@@ -1,5 +1,7 @@
 async function fetchMonsters() {
+    //On crée une réponse à l'appel de l'API
     const response = await fetch('https://mhw-db.com/monsters');
+    //On crée un tableau de monstres
     const monsters = await response.json();
     
     //On lie la div "monster-feed" à la fonction
@@ -20,7 +22,7 @@ async function fetchMonsters() {
                 <p>${monster.description}</p>
                 <ul>
                     <li>Éléments : ${monster.elements.join(', ')}</li>
-                    <li>Faiblesses : ${monster.weaknesses.map(w => w.element).join(', ')}</li>
+                    <li>Localisations : ${monster.locations.map(w => w.name).join(', ')}</li>
                 </ul>
             `;
             // On ajoute la div card dans la div container
