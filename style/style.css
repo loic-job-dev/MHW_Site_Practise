@@ -1,3 +1,10 @@
+/*Code pour la police importée*/
+.nova-cut-regular {
+    font-family: "Nova Cut", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 html {
     height: 100%;
   }
