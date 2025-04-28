@@ -40,6 +40,15 @@ header img {
     justify-content: space-between;
 }
 
+.monster-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 0.1rem solid #dbdbdb;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 1px -1px 1em 5px orangered;
+    background-color: #828282;
+}
 
 footer {
     font-size: 0.9rem;
@@ -51,10 +60,6 @@ footer {
     padding-right: 1rem;
     display: flex;
     justify-content:space-between;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right:0;
 }
 
 footer a {
@@ -77,6 +82,13 @@ footer a:visited {
     footer, header, .index_title {
         padding-left: 3rem;
         padding-right: 3rem;
+    }
+
+    .monster-card {
+        margin-left: 3rem;
+        margin-right: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
 }
