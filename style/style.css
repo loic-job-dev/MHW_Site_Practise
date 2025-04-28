@@ -39,6 +39,13 @@ main h1 {
     padding-right: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.index_title button {
+    padding: 0.2rem 0.5rem; 
+    font-size: 0.9rem; 
+    line-height: 1; 
 }
 
 .monster-card {
