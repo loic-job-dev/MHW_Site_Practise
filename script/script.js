@@ -98,11 +98,6 @@ const addCardButton = document.getElementById('addCardButton');
 const addForm = document.getElementById('addForm');
 addForm.hidden = true;
 let form;
-let inputName;
-let inputSpecies;
-let textareaDescription;
-let checkboxElements;
-let checkboxLocations;
 let buttonSubmit;
 let isAddDisplayed = false;
 
@@ -147,19 +142,19 @@ function displayForm() {
         <fieldset>
             <legend>Choose your monster's elements:</legend>
             <div>
-                <input type="checkbox" id="water" name="water">
+                <input type="checkbox" id="water" name="element" value="water">
                 <label for="water">Water</label>
             </div>
             <div>
-                <input type="checkbox" id="thunder" name="thunder">
+                <input type="checkbox" id="thunder" name="element" value ="thunder">
                 <label for="thunder">Thunder</label>
             </div>
             <div>
-                <input type="checkbox" id="fire" name="fire">
+                <input type="checkbox" id="fire" name="element" value ="fire">
                 <label for="fire">Fire</label>
             </div>
             <div>
-                <input type="checkbox" id="dragon" name="dragon">
+                <input type="checkbox" id="dragon" name="element" value="dragon">
                 <label for="dragon">Dragon</label>
             </div>
         </fieldset>
@@ -198,10 +193,30 @@ function displayForm() {
     buttonSubmit.addEventListener('click', (event) => {
         //On empêche le rechergement de la page
         event.preventDefault();
+        getDataUser();
         //On appelle la fonction pour cacher le formulaire (à faire en dernier)
         hideForm();
     })
 }
+
+//Partie logique du formulaire
+//Déclaration de variables
+let monsterName;
+let monsterSpecies;
+let monsterDescription;
+let monsterElements =[];
+let monsterLocations = [];
+
+//Fonction pour obtenir les données saisies par l'utilisateur
+function getDataUser () {
+    monsterName = document.getElementById('name').value;
+    monsterSpecies = document.getElementById('species').value;
+    monsterDescription = document.getElementById('description').value;
+    
+}
+
+//Fonction pour ajouter un nouvel article au feed
+
 
 
 //Ancienne fonction, non optimisée :
