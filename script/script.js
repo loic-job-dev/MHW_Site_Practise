@@ -1,13 +1,23 @@
 // Fonction pour consommer l'API
-async function fetchMonsters() {
+async function fetchMonsters(number) {
     //On crée une réponse à l'appel de l'API
     const response = await fetch('https://mhw-db.com/monsters');
-    //On crée un tableau de monstres
-    const monsters = await response.json();
-    console.log(monsters);
+    //On crée un tableau de number-monstres
+    const monstersList = await response.json();
+    //On conserve que les number-premiers éléments
+    const monsterListWanted =[];
+    for (let i=0; i<number; i++){
+        monsterListWanted.push(monstersList[i]);
+    }
+    console.log(monsterListWanted);
+    return monsterListWanted;
+}
+
+    
+function displayFeed (monsters) {
     //On lie la div "monster-feed" à la fonction
     const container = document.getElementById('monster-feed');
-    
+
     //Pour chaque monstre dans le fichier json
     monsters.forEach(monster => {
         // Afin de limiter le nombre de réponses, on exclut les petits monstres sans intérêt
@@ -32,7 +42,10 @@ async function fetchMonsters() {
     });
   }
   
-fetchMonsters();
+fetchMonsters(30).then(monsters => {
+    displayFeed(monsters);
+});
+
 
 
 //Déclaration de variables pour le menu DropDown
