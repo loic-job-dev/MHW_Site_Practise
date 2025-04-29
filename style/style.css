@@ -72,7 +72,33 @@ main h1 {
     padding-right: 1rem;
 }
 
+#addCardButton {
+    padding: 0.2rem 0.5rem; 
+    font-size: 1.2rem; 
+    line-height: 1; 
+    background-color: black;
+    color: orangered;
+    font-family: "Nova Cut";
+}
 
+#addForm {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 0.1rem solid #dbdbdb;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 1px -1px 1em 5px orangered;
+    background-color: #828282;
+}
+
+#addForm form {
+    font-size: 1rem;
+}
+
+#name, #species, #description {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 
 .index_title {
     padding-left: 1rem;
@@ -133,6 +159,13 @@ footer a:visited {
     }
 
     .monster-card {
+        margin-left: 3rem;
+        margin-right: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #addForm {
         margin-left: 3rem;
         margin-right: 3rem;
         padding-left: 1rem;
