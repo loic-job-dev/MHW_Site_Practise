@@ -1,9 +1,10 @@
+// Fonction pour consommer l'API
 async function fetchMonsters() {
     //On crée une réponse à l'appel de l'API
     const response = await fetch('https://mhw-db.com/monsters');
     //On crée un tableau de monstres
     const monsters = await response.json();
-    
+    console.log(monsters);
     //On lie la div "monster-feed" à la fonction
     const container = document.getElementById('monster-feed');
     
@@ -21,8 +22,8 @@ async function fetchMonsters() {
                 <h4>${monster.species}</h4>
                 <p>${monster.description}</p>
                 <ul>
-                    <li>Éléments : ${monster.elements.join(', ')}</li>
-                    <li>Localisations : ${monster.locations.map(w => w.name).join(', ')}</li>
+                    <li>Elements : ${monster.elements.join(', ')}</li>
+                    <li>Locations : ${monster.locations.map(w => w.name).join(', ')}</li>
                 </ul>
             `;
             // On ajoute la div card dans la div container
@@ -32,3 +33,52 @@ async function fetchMonsters() {
   }
   
 fetchMonsters();
+
+
+//Déclaration de variables pour le menu DropDown
+const dropDownMenu = document.getElementById('dropDowmMenu');
+const buttonMenu = document.getElementById('menuButton');
+let buttonIndex;
+let buttonGallery;
+let buttonGames;
+let isDisplayed = false;
+
+//Ecoute de l'événement click sur le bouton menu
+buttonMenu.addEventListener('click', () => {
+    console.log(isDisplayed);
+    if (!isDisplayed) {
+        showMenu();
+    }
+    else if (isDisplayed) {
+        hideMenu();
+    }
+})
+
+//Fonction pour afficher le menu
+function showMenu () {
+    buttonIndex = document.createElement("button");
+    buttonIndex.className = "dropDownButton";
+    buttonIndex.innerHTML = '<a href = "index.html">Index</a>';
+    buttonIndex.style.top = '34.38px';
+    dropDownMenu.appendChild(buttonIndex);
+    buttonGallery = document.createElement("button");
+    buttonGallery.className = "dropDownButton";
+    buttonGallery.innerHTML = '<a href = "gallery.html">Galerie</a>';
+    buttonGallery.style.top = '68.76px';
+    dropDownMenu.appendChild(buttonGallery);
+    buttonGames = document.createElement("button");
+    buttonGames.className = "dropDownButton";
+    buttonGames.innerHTML = '<a href = "games.html">Jeux</a>';
+    buttonGames.style.top = '103.14px';
+    dropDownMenu.appendChild(buttonGames);
+    isDisplayed = true;
+    console.log(isDisplayed);
+}
+
+//Fonction pour cacher le menu
+function hideMenu () {
+    buttonIndex.remove();
+    buttonGallery.remove();
+    buttonGames.remove();
+    isDisplayed = false;
+}
