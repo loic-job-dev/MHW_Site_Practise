@@ -274,10 +274,14 @@ function displayForm() {
 function displayGallery(picturesFoler) {
     const container = document.getElementById('picture-feed');
     picturesFoler.forEach(picture => {
-        const pictureCard = document.createElement('img');
-        pictureCard.src = picture;
-        pictureCard.alt = 'picture of the gallery';
+        const pictureCard = document.createElement('div');
+        pictureCard.className = 'picture-card';
+        const img = document.createElement('img');
+        img.src = picture;
+        img.alt = 'picture of the gallery';
+        img.className ='gallery_img';
         container.appendChild(pictureCard);
+        pictureCard.appendChild(img);
     }) 
 }
 
