@@ -1,3 +1,6 @@
+//On lie la div "monster-feed" aux fonctions du fichier .js
+const container = document.getElementById('monster-feed');
+
 // Fonction pour consommer l'API
 async function fetchMonsters(number) {
     //On crée une réponse à l'appel de l'API
@@ -14,8 +17,6 @@ async function fetchMonsters(number) {
 
 
 function displayFeed(monsters) {
-    //On lie la div "monster-feed" à la fonction
-    const container = document.getElementById('monster-feed');
     //Pour chaque monstre dans le fichier json
     monsters.forEach(monster => {
         // Afin de limiter le nombre de réponses, on exclut les petits monstres sans intérêt
@@ -194,6 +195,7 @@ function displayForm() {
         //On empêche le rechergement de la page
         event.preventDefault();
         getDataUser();
+        createUserCard ();
         //On appelle la fonction pour cacher le formulaire (à faire en dernier)
         hideForm();
     })
@@ -212,11 +214,31 @@ function getDataUser () {
     monsterName = document.getElementById('name').value;
     monsterSpecies = document.getElementById('species').value;
     monsterDescription = document.getElementById('description').value;
-    
+    const checkedElements = document.querySelectorAll('input[name="element"]:checked');
+    monsterElements = Array.from(checkedElements).map(checkbox => checkbox.value);
+    const checkedLocations = document.querySelectorAll('input[name="location"]:checked')
+    monsterLocations = Array.from(checkedLocations).map(checkbox => checkbox.value);
 }
 
 //Fonction pour ajouter un nouvel article au feed
-
+function createUserCard () {
+    //On crée une div pour afficher les données choisies
+    const cardUser = document.createElement('div');
+    //On donne une classe à la div (utile pour le fichier css)
+    cardUser.className = 'monster-card';
+    //On modifie le texte à l'intérieur
+    cardUser.innerHTML = `
+        <h2>${monsterName}</h2> 
+        <h4>${monsterSpecies}</h4>
+        <p>${monsterDescription}</p>
+        <ul>
+            <li>Elements : ${monsterElements.join(', ')}</li>
+            <li>Locations : ${monsterLocations.join(', ')}</li>
+        </ul>
+    `;
+    // On ajoute la div card dans la div container
+    container.insertBefore(cardUser, card);
+}
 
 
 //Ancienne fonction, non optimisée :
