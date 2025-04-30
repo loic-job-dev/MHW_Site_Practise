@@ -1,3 +1,6 @@
+//On lie la div "monster-feed" aux fonctions du fichier .js
+const container = document.getElementById('monster-feed');
+
 // Fonction pour consommer l'API
 async function fetchMonsters(number) {
     //On crée une réponse à l'appel de l'API
@@ -14,8 +17,6 @@ async function fetchMonsters(number) {
 
 
 function displayFeed(monsters) {
-    //On lie la div "monster-feed" à la fonction
-    const container = document.getElementById('monster-feed');
     //Pour chaque monstre dans le fichier json
     monsters.forEach(monster => {
         // Afin de limiter le nombre de réponses, on exclut les petits monstres sans intérêt
@@ -98,11 +99,6 @@ const addCardButton = document.getElementById('addCardButton');
 const addForm = document.getElementById('addForm');
 addForm.hidden = true;
 let form;
-let inputName;
-let inputSpecies;
-let textareaDescription;
-let checkboxElements;
-let checkboxLocations;
 let buttonSubmit;
 let isAddDisplayed = false;
 
@@ -147,19 +143,19 @@ function displayForm() {
         <fieldset>
             <legend>Choose your monster's elements:</legend>
             <div>
-                <input type="checkbox" id="water" name="water">
+                <input type="checkbox" id="water" name="element" value="water">
                 <label for="water">Water</label>
             </div>
             <div>
-                <input type="checkbox" id="thunder" name="thunder">
+                <input type="checkbox" id="thunder" name="element" value ="thunder">
                 <label for="thunder">Thunder</label>
             </div>
             <div>
-                <input type="checkbox" id="fire" name="fire">
+                <input type="checkbox" id="fire" name="element" value ="fire">
                 <label for="fire">Fire</label>
             </div>
             <div>
-                <input type="checkbox" id="dragon" name="dragon">
+                <input type="checkbox" id="dragon" name="element" value="dragon">
                 <label for="dragon">Dragon</label>
             </div>
         </fieldset>
@@ -198,9 +194,50 @@ function displayForm() {
     buttonSubmit.addEventListener('click', (event) => {
         //On empêche le rechergement de la page
         event.preventDefault();
+        getDataUser();
+        createUserCard ();
         //On appelle la fonction pour cacher le formulaire (à faire en dernier)
         hideForm();
     })
+}
+
+//Partie logique du formulaire
+//Déclaration de variables
+let monsterName;
+let monsterSpecies;
+let monsterDescription;
+let monsterElements =[];
+let monsterLocations = [];
+
+//Fonction pour obtenir les données saisies par l'utilisateur
+function getDataUser () {
+    monsterName = document.getElementById('name').value;
+    monsterSpecies = document.getElementById('species').value;
+    monsterDescription = document.getElementById('description').value;
+    const checkedElements = document.querySelectorAll('input[name="element"]:checked');
+    monsterElements = Array.from(checkedElements).map(checkbox => checkbox.value);
+    const checkedLocations = document.querySelectorAll('input[name="location"]:checked')
+    monsterLocations = Array.from(checkedLocations).map(checkbox => checkbox.value);
+}
+
+//Fonction pour ajouter un nouvel article au feed
+function createUserCard () {
+    //On crée une div pour afficher les données choisies
+    const cardUser = document.createElement('div');
+    //On donne une classe à la div (utile pour le fichier css)
+    cardUser.className = 'monster-card';
+    //On modifie le texte à l'intérieur
+    cardUser.innerHTML = `
+        <h2>${monsterName}</h2> 
+        <h4>${monsterSpecies}</h4>
+        <p>${monsterDescription}</p>
+        <ul>
+            <li>Elements : ${monsterElements.join(', ')}</li>
+            <li>Locations : ${monsterLocations.join(', ')}</li>
+        </ul>
+    `;
+    // On ajoute la div card dans la div container
+    container.insertBefore(cardUser, card);
 }
 
 
