@@ -6,11 +6,14 @@
   }
 
 body {
-    min-height: 100%;
     margin: 0;
     padding: 0;
     background-color: #666666;
     font-family: "Nova Cut";
+}
+
+main {
+    min-height: 90vh;
 }
 
 header {
@@ -72,13 +75,17 @@ main h1 {
     padding-right: 1rem;
 }
 
-#addCardButton {
+#addCardButton, #addPictureButton, #changeDisplayPictures {
     padding: 0.2rem 0.5rem; 
     font-size: 1.2rem; 
     line-height: 1; 
     background-color: black;
     color: orangered;
     font-family: "Nova Cut";
+}
+
+#changeDisplayPictures {
+    margin: 0.2rem;
 }
 
 #addForm {
@@ -108,12 +115,6 @@ main h1 {
     align-items: center;
 }
 
-.index_title button {
-    padding: 0.2rem 0.5rem; 
-    font-size: 0.9rem; 
-    line-height: 1; 
-}
-
 .monster-card {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -122,6 +123,42 @@ main h1 {
     margin-bottom: 2rem;
     box-shadow: 1px -1px 1em 5px orangered;
     background-color: #828282;
+}
+
+#picture-feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.picture-card {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border: 0.1rem solid #dbdbdb;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    box-shadow: 1px -1px 1em 5px orangered;
+    background-color: #828282;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.displayTile {
+    display: flex;
+    flex-direction: row;
+}
+
+.displayColumn {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.gallery_img {
+    max-width: 15rem;
+    max-height: 15rem;
 }
 
 footer {
@@ -172,4 +209,14 @@ footer a:visited {
         padding-right: 1rem;
     }
 
+    .gallery_img {
+        max-width: 25rem;
+        max-height: 25rem;
+    }
+
+    .picture-card {
+        max-width: 420px;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
 }

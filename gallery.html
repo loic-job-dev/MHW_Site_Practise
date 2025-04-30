@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <script src ="script/config.js" defer></script>
     <script src ="script/script.js" defer></script>
+    <script src ="script/main.js" defer></script>
 </head>
-<body>
+<body id="gallery">
     <header>
         <div id="dropDowmMenu">
             <button id="menuButton">Menu</button>
@@ -19,7 +21,17 @@
         alt="Logo du site">
     </header>
     <main>
-
+        <h1>The best pictures of the fifth company !</h1>
+        <div class="index_title">
+            <h2>The gallery :</h2>
+            <button id="addPictureButton">Add a picture</button>
+        </div>
+        <button id="changeDisplayPictures">Tile or column display</button>
+        <div id="addPictureForm">
+        </div>
+        <div id="picture-feed">
+            <div id="cardPicture"></div>
+        </div>
     </main>
     <footer>
         <a href="https://github.com/loic-job-dev/MHW_Site_Practise">Repo GitHub du site</a>
