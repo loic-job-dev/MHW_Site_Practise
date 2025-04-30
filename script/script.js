@@ -269,8 +269,10 @@ function displayForm() {
 
 //Fonctions pour la page gallery
 //Déclaration de variables
+let isInTile = true;
 
 //Déclaration de fonctions
+//Fonction pour afficher les images dans la gallerie à partir du tableau en config.js
 function displayGallery(picturesFoler) {
     const container = document.getElementById('picture-feed');
     picturesFoler.forEach(picture => {
@@ -285,3 +287,30 @@ function displayGallery(picturesFoler) {
     }) 
 }
 
+//Fonction pour modifier l'affichage
+function switchDisplay () {
+    const container = document.getElementById('picture-feed');
+    const pictureCards = document.getElementsByClassName('picture-card');
+    const picturesDisplayed = document.getElementsByClassName("gallery_img");
+    if(!isInTile) {
+        console.log("affichage en mosaïque");
+        container.style.display="flex";
+        container.style.flexDirection="column";
+        container.style.alignItems="center";
+        Array.from(picturesDisplayed).forEach(img => {
+            img.style.maxWidth = "25rem";
+        });
+        isInTile = true;
+    }
+    else if(isInTile) {
+        console.log("affichage en colonne");
+        container.style.display="flex";
+        container.style.flexDirection="row";
+        container.style.flexWrap="wrap";
+        container.style.justifyContent="center";
+        Array.from(picturesDisplayed).forEach(img => {
+            img.style.maxWidth = "10rem";
+        });
+        isInTile = false;
+    }
+}
