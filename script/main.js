@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.getElementById('gallery')) {
         //Déclaration de variables globales depuis la page 'gallery.html'
         const changeDisplayPictures = document.getElementById('changeDisplayPictures');
+        const addPictureButton = document.getElementById('addPictureButton');
+        const addForm = document.getElementById('addForm');
+        addForm.hidden = true;
 
         //Appel de la fonction pour afficher les images
         displayGallery(picturesFoler);
@@ -30,5 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
         changeDisplayPictures.addEventListener('click', function() {
             switchDisplay ();
         })
+        //Ecoute de l'événement de click sur le bouton d'ajout d'image
+        addPictureButton.addEventListener('click', () => {
+            console.log("ajout de l'image");
+            displayFormPicture ();
+        })
+
     }
 })

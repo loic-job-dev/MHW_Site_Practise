@@ -270,6 +270,7 @@ function displayForm() {
 //Fonctions pour la page gallery
 //Déclaration de variables
 let isInTile = true;
+let pictureUser;
 
 //Déclaration de fonctions
 //Fonction pour afficher les images dans la gallerie à partir du tableau en config.js
@@ -314,3 +315,77 @@ function switchDisplay () {
         isInTile = false;
     }
 }
+
+//Fonction pour afficher le formulaire d'ajout d'image
+function displayFormPicture () {
+    //On modifie le booléen pour empêcher d'afficher 2 fois le formulaire
+    isAddDisplayed = true;
+    //On affiche la div 'addForm'
+    addForm.hidden = false;
+    form = document.createElement('form');
+    //On ajoute le code HTML dans le formulaire
+    form.innerHTML = `
+    <legend> Your monster's picture
+    <fieldset>
+        <div>
+            <label for="name">Picture :</label>
+            <input type="file" id="picture" name="picture" required/>
+        </div>
+        <div>
+            <button type="submit" id="buttonSubmit">Poster</button>
+        </div>
+    </fieldset>`
+    //On fait apparaitre la div form dans la div addForm
+    addForm.appendChild(form);
+    //On lie le bouton Submit au script
+    buttonSubmit = document.getElementById('buttonSubmit');
+    //On gère le'event de clic sur le bouton
+    buttonSubmit.addEventListener('click', (event) => {
+        //On empêche le rechergement de la page
+        event.preventDefault();
+        getPictureUser();
+        //On appelle la fonction pour cacher le formulaire (à faire en dernier)
+        hideForm();
+    })
+}
+
+//Partie logique de la gestion d'ajout d'image
+function getPictureUser () {
+    pictureUser = document.getElementById('picture').value;
+    console.log(pictureUser);
+}
+
+function createUserPicture () {
+
+    //Part to continue
+    
+    const container = document.getElementById('monster-feed');
+    //On crée une div pour afficher les données choisies
+    const cardUser = document.createElement('div');
+    //On donne une classe à la div (utile pour le fichier css)
+    cardUser.className = 'monster-card';
+    //On modifie le texte à l'intérieur
+    cardUser.innerHTML = `
+        <h2>${monsterName}</h2> 
+        <h4>${monsterSpecies}</h4>
+        <p>${monsterDescription}</p>
+        <ul>
+            <li>Elements : ${monsterElements.join(', ')}</li>
+            <li>Locations : ${monsterLocations.join(', ')}</li>
+        </ul>
+    `;
+    // On ajoute la div card dans la div container
+    container.insertBefore(cardUser, card);
+}
+    /*const addPictureButton = document.getElementById('addPictureButton');
+    const container = document.getElementById('picture-feed');
+    const pictureCard = document.createElement('div');
+    pictureCard.className = 'picture-card';
+    const img = document.createElement('input');
+    img.type = 'file';
+    alert(img);
+    img.src = picture;
+    img.alt = 'picture of the gallery';
+    img.className ='gallery_img';
+    container.appendChild(pictureCard);
+    pictureCard.appendChild(img); */
