@@ -1,6 +1,3 @@
-//On lie la div "monster-feed" aux fonctions du fichier .js
-const container = document.getElementById('monster-feed');
-
 // Fonction pour consommer l'API
 async function fetchMonsters(number) {
     //On crée une réponse à l'appel de l'API
@@ -17,6 +14,7 @@ async function fetchMonsters(number) {
 
 
 function displayFeed(monsters) {
+    const container = document.getElementById('monster-feed');
     //Pour chaque monstre dans le fichier json
     monsters.forEach(monster => {
         // Afin de limiter le nombre de réponses, on exclut les petits monstres sans intérêt
@@ -40,10 +38,6 @@ function displayFeed(monsters) {
         }
     });
 }
-
-fetchMonsters(30).then(monsters => {
-    displayFeed(monsters);
-});
 
 
 //Menu DropDown
@@ -95,20 +89,9 @@ function hideMenu() {
 
 //Formulaire d'ajout dans le feed
 //Déclaration de variables pour le formulaire d'ajout dans le feed
-const addCardButton = document.getElementById('addCardButton');
-const addForm = document.getElementById('addForm');
-addForm.hidden = true;
 let form;
 let buttonSubmit;
 let isAddDisplayed = false;
-
-
-//Ecoute de l'événement de click sur le bouton addCardButton
-addCardButton.addEventListener('click', () => {
-    if (!isAddDisplayed) {
-    displayForm();
-    }
-})
 
 //Fonction pour cacher le formulaire
 function hideForm() {
@@ -222,6 +205,7 @@ function getDataUser () {
 
 //Fonction pour ajouter un nouvel article au feed
 function createUserCard () {
+    const container = document.getElementById('monster-feed');
     //On crée une div pour afficher les données choisies
     const cardUser = document.createElement('div');
     //On donne une classe à la div (utile pour le fichier css)
@@ -281,3 +265,23 @@ function displayForm() {
         hideForm();
     })
 }*/
+
+
+//Fonctions pour la page gallery
+//Déclaration de variables
+
+//Déclaration de fonctions
+function displayGallery(picturesFoler) {
+    const container = document.getElementById('picture-feed');
+    picturesFoler.forEach(picture => {
+        const pictureCard = document.createElement('div');
+        pictureCard.className = 'picture-card';
+        const img = document.createElement('img');
+        img.src = picture;
+        img.alt = 'picture of the gallery';
+        img.className ='gallery_img';
+        container.appendChild(pictureCard);
+        pictureCard.appendChild(img);
+    }) 
+}
+
