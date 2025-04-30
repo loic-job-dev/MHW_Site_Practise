@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //Ecoute de l'événement de click sur le bouton changeDisplayPictures
         changeDisplayPictures.addEventListener('click', function() {
-
+            switchDisplay ();
         })
     }
 })
