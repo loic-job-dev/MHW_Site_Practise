@@ -221,7 +221,7 @@ function createUserCard () {
         </ul>
     `;
     // On ajoute la div card dans la div container
-    container.insertBefore(cardUser, card);
+    container.insertBefore(cardUser, container.firstChild);
 }
 
 
@@ -351,41 +351,37 @@ function displayFormPicture () {
 
 //Partie logique de la gestion d'ajout d'image
 function getPictureUser () {
-    pictureUser = document.getElementById('picture').value;
-    console.log(pictureUser);
+    // On récupère le champ <input> HTML lui-même
+    const fileInput = document.getElementById('picture');
+    //On récupère le fichier sélectionné par l’utilisateur (L'attribut .files est une propriété spéciale de ce champ de type "file",
+    //  qui contient une liste de fichiers sélectionnés par l'utilisateur. C’est un objet de type FileList, un peu comme un tableau)
+    const file = fileInput.files[0];
+
+    //Si un fichier est bien ajouté
+    if (file) {
+        //On crée un nouvel objet FileReader. Cet objet sert à lire le contenu du fichier, comme ici une image.
+        const reader = new FileReader();
+        //On définit ce qui doit se passer une fois que le fichier a été lu avec la propriété onload.
+        reader.onload = function (e) {
+            //Une fois la lecture terminée, e.target.result contient les données de l'image au format base64 (Data URL). On stocke ça dans imageData.
+            const imageData = e.target.result;
+            createUserPicture(imageData);
+        }
+        //On dit à FileReader de lire le fichier sous forme de Data URL (utilisé pour afficher des images dans une balise <img>).
+        reader.readAsDataURL(file); 
+    }
 }
 
-function createUserPicture () {
-
-    //Part to continue
-    
-    const container = document.getElementById('monster-feed');
-    //On crée une div pour afficher les données choisies
-    const cardUser = document.createElement('div');
-    //On donne une classe à la div (utile pour le fichier css)
-    cardUser.className = 'monster-card';
-    //On modifie le texte à l'intérieur
-    cardUser.innerHTML = `
-        <h2>${monsterName}</h2> 
-        <h4>${monsterSpecies}</h4>
-        <p>${monsterDescription}</p>
-        <ul>
-            <li>Elements : ${monsterElements.join(', ')}</li>
-            <li>Locations : ${monsterLocations.join(', ')}</li>
-        </ul>
-    `;
-    // On ajoute la div card dans la div container
-    container.insertBefore(cardUser, card);
-}
-    /*const addPictureButton = document.getElementById('addPictureButton');
+function createUserPicture (imageSrc) {
     const container = document.getElementById('picture-feed');
-    const pictureCard = document.createElement('div');
-    pictureCard.className = 'picture-card';
-    const img = document.createElement('input');
-    img.type = 'file';
-    alert(img);
-    img.src = picture;
-    img.alt = 'picture of the gallery';
-    img.className ='gallery_img';
-    container.appendChild(pictureCard);
-    pictureCard.appendChild(img); */
+    const cardUser = document.createElement('div');
+    cardUser.className = 'monster-card';
+
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = "Monster";
+    img.style.maxWidth = "400px";
+
+    cardUser.appendChild(img);
+    container.insertBefore(cardUser, container.firstChild);
+}

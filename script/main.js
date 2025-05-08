@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         //Ecoute de l'événement de click sur le bouton d'ajout d'image
         addPictureButton.addEventListener('click', () => {
-            console.log("ajout de l'image");
-            displayFormPicture ();
+            if (!isAddDisplayed) {
+                displayFormPicture ();
+            }
         })
 
     }
