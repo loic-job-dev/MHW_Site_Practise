@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayForm();
             }
         })
+
+        changeAd();
     }
 
     if (document.getElementById('gallery')) {

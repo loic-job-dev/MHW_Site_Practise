@@ -398,3 +398,29 @@ function createUserPicture (imageSrc) {
     cardUser.appendChild(img);
     container.insertBefore(cardUser, container.firstChild);
 }
+
+//Fonctions pour la bannière de pub
+//Variables pour la bannière
+let indexAd = 0;
+
+//Fonction pour afficher une image
+function displayAd () {
+    
+    let adPicture = adPictures[indexAd];
+    const adBanner = document.getElementById('advertising');
+    adBanner.src = adPicture;
+    adBanner.className = 'monster-card';
+    adBanner.alt = "Advertising";
+    adBanner.style.maxWidth = "310px";
+    if (indexAd < adPictures.length-1) {
+        indexAd++;
+    }
+    else {
+        indexAd = 0;
+    }
+}
+
+//fonction pour changer d'image régluièrement
+function changeAd () {
+    setInterval (displayAd, 1500);
+}
