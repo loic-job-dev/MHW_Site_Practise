@@ -87,6 +87,14 @@ main h1 {
     align-items: center;
 }
 
+/* Codes pour les pubs */
+.advertising {
+    border: 0.1rem solid #000000;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 1px -1px 1em 5px orangered;
+}
+
 /* Codes pour les boutons */
 #addCardButton, #addPictureButton, #changeDisplayPictures {
     padding: 0.2rem 0.5rem; 
@@ -148,7 +156,6 @@ main h1 {
 }
 
 /* Codes pour la galerie */
-
 .picture-card {
     margin-left: 1rem;
     margin-right: 1rem;
