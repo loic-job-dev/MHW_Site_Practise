@@ -219,7 +219,13 @@ function createUserCard () {
             <li>Elements : ${monsterElements.join(', ')}</li>
             <li>Locations : ${monsterLocations.join(', ')}</li>
         </ul>
+        <button type ="button" class="buttonRemove">Supprimer cet élément</button>
     `;
+    // Attacher l’événement de suppression au bouton
+    const button = cardUser.querySelector('.buttonRemove');
+    button.addEventListener('click', () => {
+        cardUser.remove();
+    });
     // On ajoute la div card dans la div container
     container.insertBefore(cardUser, container.firstChild);
 }
@@ -376,11 +382,18 @@ function createUserPicture (imageSrc) {
     const container = document.getElementById('picture-feed');
     const cardUser = document.createElement('div');
     cardUser.className = 'monster-card';
+    cardUser.innerHTML = `<button type ="button" class="buttonRemove">Supprimer cet élément</button>`;
 
     const img = document.createElement('img');
     img.src = imageSrc;
     img.alt = "Monster";
     img.style.maxWidth = "400px";
+
+    // Attacher l’événement de suppression au bouton
+    const button = cardUser.querySelector('.buttonRemove');
+    button.addEventListener('click', () => {
+        cardUser.remove();
+    });
 
     cardUser.appendChild(img);
     container.insertBefore(cardUser, container.firstChild);
