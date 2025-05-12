@@ -95,6 +95,12 @@ main h1 {
     box-shadow: 1px -1px 1em 5px orangered;
 }
 
+/* Codes pour les jeux */
+#gameZone {
+    margin-top: 3rem;
+    box-shadow: 1px -1px 1em 5px rgb(79, 11, 189);
+}
+
 /* Codes pour les boutons */
 #addCardButton, #addPictureButton, #changeDisplayPictures {
     padding: 0.2rem 0.5rem; 
