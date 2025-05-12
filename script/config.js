@@ -10,3 +10,9 @@ const picturesFoler = [
     "gallery_pictures/mhw-tobi-kadachi_render_001.webp",
     "gallery_pictures/mhw-tzitzi-ya-ku_render_001.png"
 ];
+
+const adPictures = [
+    "advertising_pictures/adv01.webp",
+    "advertising_pictures/adv02.webp",
+    "advertising_pictures/adv03.webp"
+];
