@@ -9,20 +9,21 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #666666;
+    background-color: #666666d7;
     font-family: "Nova Cut";
 }
 
 main {
     min-height: 90vh;
+    position: relative;
 }
+
 
 /* Codes pour le header */
 header {
     background-color: #828282;
     border-bottom: 0.1rem groove #dbdbdb;
     margin-bottom: 2px;
-    box-shadow: 0px 1px 2em 10px orangered;
     margin: 0;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -33,10 +34,10 @@ header {
 }
 
 header a:visited {
-    color: orangered;
+    color: #4b9949;
 }
 header a {
-    color: orangered;
+    color: #4b9949;
 }
 
 header img {
@@ -56,7 +57,7 @@ header img {
     position :relative;
     z-index: 2;
     background-color: black;
-    color: orangered;
+    color: #4b9949;
     font-family: "Nova Cut";
 }
 
@@ -69,7 +70,7 @@ header img {
     top: 3rem;
     z-index: 1;
     background-color: black;
-    color: orangered;
+    color: #4b9949;
     font-family: "Nova Cut";
 }
 
@@ -77,6 +78,9 @@ header img {
 main h1 {
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-top: 2rem;
+    margin: 0;
+    background-color: #828282e1;
 }
 
 .index_title {
@@ -85,6 +89,21 @@ main h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #828282e1;
+}
+
+/* Codes pour les pubs */
+.advertising {
+    border: 0.1rem solid #000000;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 1px -1px 1em 5px #417340;
+}
+
+/* Codes pour les jeux */
+#gameZone {
+    margin-top: 3rem;
+    box-shadow: 1px -1px 1em 5px rgb(79, 11, 189);
 }
 
 /* Codes pour les boutons */
@@ -93,7 +112,7 @@ main h1 {
     font-size: 1.2rem; 
     line-height: 1; 
     background-color: black;
-    color: orangered;
+    color: #4b9949;
     font-family: "Nova Cut";
 }
 
@@ -106,7 +125,7 @@ main h1 {
     font-size: 0.8rem; 
     line-height: 1; 
     background-color: black;
-    color: orangered;
+    color: #4b9949;
     font-family: "Nova Cut";
 }
 
@@ -123,8 +142,8 @@ main h1 {
     border: 0.1rem solid #dbdbdb;
     padding: 1rem;
     margin-bottom: 2rem;
-    box-shadow: 1px -1px 1em 5px orangered;
-    background-color: #828282;
+    box-shadow: 1px -1px 1em 5px #417340;
+    background-color: #828282e1;
 }
 
 #addForm form {
@@ -136,19 +155,19 @@ main h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Codes pour le feed ajouté par l'utilisateur */
+/* Codes pour le feed */
 .monster-card {
     margin-left: 1rem;
     margin-right: 1rem;
     border: 0.1rem solid #dbdbdb;
     padding: 1rem;
+    margin-top: 1rem;;
     margin-bottom: 2rem;
-    box-shadow: 1px -1px 1em 5px orangered;
-    background-color: #828282;
+    box-shadow: 1px -1px 1em 5px #417340;
+    background-color: #afafafc7;
 }
 
 /* Codes pour la galerie */
-
 .picture-card {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -156,7 +175,7 @@ main h1 {
     padding: 0;
     margin-bottom: 2rem;
     margin-top: 2rem;
-    box-shadow: 1px -1px 1em 5px orangered;
+    box-shadow: 1px -1px 1em 5px #417340;
     background-color: #828282;
     display: flex;
     flex-direction: column;
@@ -192,7 +211,7 @@ footer {
     font-size: 0.9rem;
     background-color: #828282;
     border-top: 0.1rem solid #dbdbdb;
-    box-shadow: 0px -1px 2em 10px orangered;
+    box-shadow: 0px -1px 2em 10px #417340;
     margin: 0;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -245,5 +264,18 @@ footer a:visited {
         max-width: 420px;
         margin-bottom: 2rem;
         margin-top: 2rem;
+    }
+
+    .fixed-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('../site_pictures/background02.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1; /* pour qu’elle reste en arrière-plan */
     }
 }

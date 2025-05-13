@@ -395,7 +395,7 @@ function displayAd () {
     let adPicture = adPictures[indexAd];
     const adBanner = document.getElementById('advertising');
     adBanner.src = adPicture;
-    adBanner.className = 'monster-card';
+    adBanner.className = 'advertising';
     adBanner.alt = "Advertising";
     adBanner.style.maxWidth = "310px";
     if (indexAd < adPictures.length-1) {
