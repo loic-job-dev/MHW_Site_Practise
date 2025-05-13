@@ -15,6 +15,7 @@ async function fetchMonsters(number) {
 
 function displayFeed(monsters) {
     const container = document.getElementById('monster-feed');
+    const loader = document.getElementById('loader-container');
     //Pour chaque monstre dans le fichier json
     monsters.forEach(monster => {
         // Afin de limiter le nombre de réponses, on exclut les petits monstres sans intérêt
@@ -37,6 +38,7 @@ function displayFeed(monsters) {
             container.appendChild(card);
         }
     });
+    loader.remove();
 }
 
 
