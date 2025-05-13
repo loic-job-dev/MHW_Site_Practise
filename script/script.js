@@ -288,7 +288,6 @@ function displayGallery(picturesFoler) {
         const img = document.createElement('img');
         img.src = picture;
         img.alt = 'picture of the gallery';
-        img.className ='gallery_img';
         container.appendChild(pictureCard);
         pictureCard.appendChild(img);
     }) 
@@ -298,26 +297,14 @@ function displayGallery(picturesFoler) {
 function switchDisplay () {
     const container = document.getElementById('picture-feed');
     const pictureCards = document.getElementsByClassName('picture-card');
-    const picturesDisplayed = document.getElementsByClassName("gallery_img");
     if(!isInTile) {
         console.log("affichage en mosaïque");
-        container.style.display="flex";
-        container.style.flexDirection="column";
-        container.style.alignItems="center";
-        Array.from(picturesDisplayed).forEach(img => {
-            img.style.maxWidth = "25rem";
-        });
+        container.className="displayColumn";
         isInTile = true;
     }
     else if(isInTile) {
         console.log("affichage en colonne");
-        container.style.display="flex";
-        container.style.flexDirection="row";
-        container.style.flexWrap="wrap";
-        container.style.justifyContent="center";
-        Array.from(picturesDisplayed).forEach(img => {
-            img.style.maxWidth = "10rem";
-        });
+        container.className="displayTile";
         isInTile = false;
     }
 }
@@ -381,16 +368,15 @@ function getPictureUser () {
 function createUserPicture (imageSrc) {
     const container = document.getElementById('picture-feed');
     const cardUser = document.createElement('div');
-    cardUser.className = 'monster-card';
-    cardUser.innerHTML = `<button type ="button" class="buttonRemove">Supprimer cet élément</button>`;
+    cardUser.className = 'picture-card';
+    cardUser.innerHTML = `<button type ="button" class="buttonRemovePicture">Supprimer</button>`;
 
     const img = document.createElement('img');
     img.src = imageSrc;
     img.alt = "Monster";
-    img.style.maxWidth = "400px";
 
     // Attacher l’événement de suppression au bouton
-    const button = cardUser.querySelector('.buttonRemove');
+    const button = cardUser.querySelector('.buttonRemovePicture');
     button.addEventListener('click', () => {
         cardUser.remove();
     });

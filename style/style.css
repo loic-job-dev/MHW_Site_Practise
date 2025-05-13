@@ -5,6 +5,7 @@
     font-style: normal;
   }
 
+/* Codes généraux   */
 body {
     margin: 0;
     padding: 0;
@@ -16,6 +17,7 @@ main {
     min-height: 90vh;
 }
 
+/* Codes pour le header */
 header {
     background-color: #828282;
     border-bottom: 0.1rem groove #dbdbdb;
@@ -30,6 +32,19 @@ header {
     font-family: "Nova Cut";
 }
 
+header a:visited {
+    color: orangered;
+}
+header a {
+    color: orangered;
+}
+
+header img {
+    max-width: 5.5rem;
+    max-height: 5.5rem;
+}
+
+/* Codes pour le menu DropDown */
 #dropDowmMenu {
     position: relative;
 }
@@ -58,23 +73,21 @@ header {
     font-family: "Nova Cut";
 }
 
-header a:visited {
-    color: orangered;
-}
-header a {
-    color: orangered;
-}
-
-header img {
-    max-width: 5.5rem;
-    max-height: 5.5rem;
-}
-
+/* Codes pour le main */
 main h1 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
+.index_title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Codes pour les boutons */
 #addCardButton, #addPictureButton, #changeDisplayPictures {
     padding: 0.2rem 0.5rem; 
     font-size: 1.2rem; 
@@ -88,6 +101,22 @@ main h1 {
     margin: 0.2rem;
 }
 
+.buttonRemove, .buttonRemovePicture, form button {
+    padding: 0.2rem 0.5rem; 
+    font-size: 0.8rem; 
+    line-height: 1; 
+    background-color: black;
+    color: orangered;
+    font-family: "Nova Cut";
+}
+
+.buttonRemovePicture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+/* Codes pour le formulaire Index */
 #addForm {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -107,14 +136,7 @@ main h1 {
     margin-bottom: 0.5rem;
 }
 
-.index_title {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Codes pour le feed ajouté par l'utilisateur */
 .monster-card {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -125,42 +147,47 @@ main h1 {
     background-color: #828282;
 }
 
-#picture-feed{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* Codes pour la galerie */
 
 .picture-card {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border: 0.1rem solid #dbdbdb;
-    padding: 1rem;
+    padding: 0;
     margin-bottom: 2rem;
     margin-top: 2rem;
     box-shadow: 1px -1px 1em 5px orangered;
     background-color: #828282;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .displayTile {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+.displayTile img {
+    max-width: 9rem;
+    padding: 0.1rem;
+}
+
 
 .displayColumn {
     display: flex;
     flex-direction:column;
     align-items: center;
 }
-
-.gallery_img {
-    max-width: 15rem;
-    max-height: 15rem;
+.displayColumn img {
+    max-width: 20rem;
 }
 
+
+/* Codes pour le footer */
 footer {
     font-size: 0.9rem;
     background-color: #828282;
